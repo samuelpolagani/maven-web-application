@@ -97,14 +97,14 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://43.205.125.230:7777/dayatechlimited/repository/wallmart-release/</url>
+	      <name>Daya Technologies Releases Nexus Repository</name>
+	      <url>http://13.251.125.56:8081/dayatechlimited/repository/wallmart-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://43.205.125.230:7777/dayatechlimited/repository/wallmart-snapshot/</url>
+	      <name>Daya Technologies Snapshot Nexus Repository </name>
+	      <url>http://13.251.125.56:8081/dayatechlimited/repository/wallmart-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
