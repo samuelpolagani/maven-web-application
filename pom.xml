@@ -21,7 +21,7 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://13.214.29.141:9000/</sonar.host.url>
+		<sonar.host.url>http://13.251.45.98:9000/</sonar.host.url>
 		<sonar.login>4d5d4ab39a2d8972ee12d25fee40f4074c61f8e6</sonar.login>
 		<!-- <sonar.password>admin</sonar.password> -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Daya Technologies Releases Nexus Repository</name>
-	      <url>http://13.251.125.56:8081/dayatechlimited/repository/wallmart-release/</url>
+	      <url>http://13.212.146.233:8081/dayatechlimited/repository/wallmart-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Daya Technologies Snapshot Nexus Repository </name>
-	      <url>http://13.251.125.56:8081/dayatechlimited/repository/wallmart-snapshot/</url>
+	      <url>http://13.212.146.233:8081/dayatechlimited/repository/wallmart-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
