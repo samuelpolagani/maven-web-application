@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: MavenCICD
+  name: mavencicd
   namespace: test-ns
 spec:
   replicas: 2
