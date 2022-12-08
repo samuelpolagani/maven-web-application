@@ -9,7 +9,7 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to DayaTech Solutions, Veleru </h1>
+<h1 align="center">Welcome to DairyFarm Solutions, Veleru </h1>
 <h1 align="center"> DayaTech Solutions-Veleru, Krishna, India</h1>
 <hr>
 <br>
