@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: mavencicdcontainer
-        image: samuelpolagani98/maven-web:BUILDNUM
+        image: 237277575225.dkr.ecr.ap-south-2.amazonaws.com/maven-web:BUILDNUM
         ports:
         - containerPort: 8080
 ---
