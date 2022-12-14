@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1 align="center">Welcome to DairyFarm Solutions, Veleru </h1>
-<h1 align="center"> DayaTech Solutions-Veleru, Krishna, India</h1>
+<h1 align="center">Suvisesha Voice</h1>
 <hr>
 <br>
 	<h1><h3> Server Side IP Address </h3><br>
