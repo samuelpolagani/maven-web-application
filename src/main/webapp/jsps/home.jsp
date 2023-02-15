@@ -9,7 +9,7 @@
 </head>
 </head>
 <body>
-<h1 align="center">Welcome to DayaTech Solutions, Veleru </h1>
+<h1 align="center">Welcome to DayaTech Solutions, India, AP </h1>
 <h1 align="center"> DayaTech Solutions- Very Good Training center for DevOps with AWS in Maratha Halli Bangalore India and also for Job Assitance Job Support also...Teaching Real Time scnerios</h1>
 <hr>
 <br>
