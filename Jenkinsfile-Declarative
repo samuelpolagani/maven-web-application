@@ -1,0 +1,91 @@
+pipeline{
+	agent any
+    
+	tools{
+    	maven 'maven3.8.7'
+	}
+    
+	triggers {
+    	pollSCM '* * * * *'
+	}
+    
+	options {
+  buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '4', daysToKeepStr: '', numToKeepStr: '5')  //discard old builds
+  timeout(activity: true, time: 3)  //timeout after 3 mins
+  timestamps()  //adding time stamps
+}
+
+
+	stages{
+    	stage("CheckOutCode"){
+        	steps{
+            	git branch: 'development', credentialsId: 'GithubCredentials', url: 'https://github.com/samuel-demo-apps/wallmart-project.git'
+        	}
+    	}
+   	 
+    	stage("BuildPackage"){
+        	steps{
+            	sh "mvn clean package"
+        	}
+    	}
+   	 
+    	stage("ExecuteSonarQubeReport"){
+        	steps{
+            	sh "mvn sonar:sonar"
+        	}
+    	}
+   	 
+    	stage("UploadArtifactToNexus"){
+        	steps{
+            	sh "mvn deploy"
+        	}
+    	}
+   	 
+    	stage("DeployArtifactIntoTomcatServer"){
+        	steps{
+            	sshagent(['TomcatSSH']) {
+            	sh 'scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.127.88.2:/opt/apache-tomcat-9.0.71/webapps/'
+            	}
+        	}
+    	}
+   	 
+    	stage("SendEmailNotification"){
+        	steps{
+            	emailext attachLog: true, body: 'Build Completed', postsendScript: 'Build Completed', presendScript: 'Build Starting', replyTo: 'samuel.polagani.learner@gmail.com', subject: 'Build Status', to: 'samuel.polagani.learner@gmail.com'
+        	}
+    	}
+	} //Stage Closing
+post {
+  always {
+emailext body: '''Build ${BUILD_STATUS}
+
+Regards,
+Samuel Polagani''', subject: '${BUILD_STATUS}', to: 'samuel.polagani.learner@gmail.com'
+  }
+  aborted {
+	emailext body: '''Build Aborted...
+
+Regards,
+Samuel Polagani''', subject: '${BUILD_STATUS}', to: 'samuel.polagani.learner@gmail.com'
+  }
+  success {
+	emailext body: '''Build Success...
+
+Regards,
+Samuel Polagani''', subject: '${BUILD_STATUS}', to: 'samuel.polagani.learner@gmail.com'
+  }
+  failure {
+	emailext body: '''Build Failed...
+
+Regards,
+Samuel Polagani''', subject: '${BUILD_STATUS}', to: 'samuel.polagani.learner@gmail.com'
+  }
+  unsuccessful {
+	emailext body: '''Build Unsuccessfull...
+
+Regards,
+Samuel Polagani''', subject: '${BUILD_STATUS}', to: 'samuel.polagani.learner@gmail.com'
+  }
+}
+
+} //Pipeline Closing
